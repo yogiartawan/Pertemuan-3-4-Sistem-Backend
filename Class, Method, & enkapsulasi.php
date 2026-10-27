@@ -1,8 +1,9 @@
+// I GEDE PRADNYA YOGIARTAWAN (250030522/UG253)
+
+
 <?php
 
-// ==========================================
-// 1. CLASS BUKU (Menerapkan Enkapsulasi & Pewarisan)
-// ==========================================
+// Class buku
 class Buku {
     // Enkapsulasi: Properti dibuat private agar aman dari akses luar langsung
     private $judul;
@@ -38,7 +39,7 @@ class Buku {
     }
 }
 
-// Pewarisan (Inheritance): BukuFisik mewarisi sifat dari class Buku
+
 class BukuFisik extends Buku {
     private $jumlahHalaman;
 
@@ -53,7 +54,7 @@ class BukuFisik extends Buku {
     }
 }
 
-// Pewarisan (Inheritance): BukuDigital mewarisi sifat dari class Buku
+
 class BukuDigital extends Buku {
     private $ukuranFile; // dalam MB
 
@@ -69,9 +70,7 @@ class BukuDigital extends Buku {
 }
 
 
-// ==========================================
-// 2. CLASS ANGGOTA (Abstract Class untuk Polimorfisme & Enkapsulasi)
-// ==========================================
+//Class Anggota 
 abstract class Anggota {
     protected $nama;
     protected $idAnggota;
@@ -132,9 +131,7 @@ class Dosen extends Anggota {
 }
 
 
-// ==========================================
-// 3. CLASS PINJAMAN (Relasi antar Objek)
-// ==========================================
+// Class pinjaman 
 class Pinjaman {
     private Anggota $anggota; // Type hinting objek Anggota
     private Buku $buku;       // Type hinting objek Buku
@@ -160,10 +157,7 @@ class Pinjaman {
     }
 }
 
-
-// ==========================================
-// DEMONSTRASI / CONTOH PENGGUNAAN PROGRAM
-// ==========================================
+// Contoh 
 
 // Membuat Objek Buku (Menggunakan class turunan: BukuFisik & BukuDigital)
 $buku1 = new BukuFisik("Belajar Pemrograman PHP", "Andi Prasetyo", "978-602-123", 320);
@@ -179,5 +173,8 @@ $transaksi1->prosesPinjam();
 
 $transaksi2 = new Pinjaman($dosen, $buku2, "2026-06-07");
 $transaksi2->prosesPinjam();
+
+$buku1 = new Buku("Pemrograman Web PHP", "Andi", "978-12345");
+
 
 ?>
